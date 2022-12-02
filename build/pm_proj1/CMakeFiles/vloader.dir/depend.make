@@ -3,8 +3,18 @@
 
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /home/percmap/project_pm/src/pm_proj1/include/pm_proj1.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /home/percmap/project_pm/src/pm_proj1/src/vloader.cpp
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/cv_bridge/cv_bridge.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/camera_publisher.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/camera_subscriber.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/exception.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/image_transport.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/loader_fwds.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/publisher.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/single_subscriber_publisher.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/subscriber.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/image_transport/transport_hints.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/assert.h
@@ -61,6 +71,12 @@ pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/sensor_msgs/CameraInfo.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/sensor_msgs/CompressedImage.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/sensor_msgs/Image.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/sensor_msgs/RegionOfInterest.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/sensor_msgs/image_encodings.h
+pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/turtlesim/Pose.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
 pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcValue.h

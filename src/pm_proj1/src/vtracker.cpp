@@ -13,6 +13,5 @@ void cbPose(const turtlesim::Pose &msg)
     geometry_msgs::Vector3 center;
     center.x = ball_center.x;
     center.y = ball_center.y;
-    // Publish the message.
     pub.publish(center);
 }
