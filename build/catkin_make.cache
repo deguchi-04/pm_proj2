@@ -1,0 +1,2 @@
+pm_proj1
+-DCATKIN_DEVEL_PREFIX=/home/percmap/project_pm/devel -DCMAKE_INSTALL_PREFIX=/home/percmap/project_pm/install -G Unix Makefiles

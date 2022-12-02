@@ -1,0 +1,8 @@
+prefix=/home/percmap/project_pm/devel
+
+Name: pm_proj1
+Description: Description of pm_proj1
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
