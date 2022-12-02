@@ -32,23 +32,23 @@ catkin_package(
     )
 ## Declare a C++ executable
 # add_executable(${PROJECT_NAME}_node src/cv_classes_node.cpp)
-add_executable(pm_proj1 src/pm_proj1.cpp)
+add_executable(vloader src/vloader.cpp)
 
 ## Rename C++ executable without prefix
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 
 ## Rename C++ executable without prefix
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-set_target_properties(pm_proj1 PROPERTIES OUTPUT_NAME pm_proj1 PREFIX "")
+set_target_properties(vloader PROPERTIES OUTPUT_NAME vloader PREFIX "")
 ## Add cmake target dependencies of the executable
-add_dependencies(pm_proj1 ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(vloader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Add cmake target dependencies of the executable
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${libname_LIBRARIES}
 # )
-target_link_libraries(pm_proj1 ${OpenCV_LIBRARIES})
-target_link_libraries(pm_proj1 ${catkin_LIBRARIES})
+target_link_libraries(vloader ${OpenCV_LIBRARIES})
+target_link_libraries(vloader ${catkin_LIBRARIES})
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures

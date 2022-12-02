@@ -113,8 +113,8 @@ void method1(string path, int mean, int std, int x, int y){
         cv::Moments m = moments(frame_threshold, false);
         cv::Point com(m.m10 / m.m00, m.m01 / m.m00);
         ball_center = com;
-        cv::drawMarker(frame, com, color, cv::MARKER_TILTED_CROSS, 10, 5);
-        cv::drawMarker(frame_threshold, com, color, cv::MARKER_TILTED_CROSS, 10, 5);
+        cv::drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 5);
+        cv::drawMarker(frame_threshold, com, color, cv::MARKER_CROSS, 20, 5);
         
         
         Canny( frame_threshold, cont, thresh, thresh*2 );
@@ -140,7 +140,7 @@ void method1(string path, int mean, int std, int x, int y){
         imshow(window_detection_name, frame_threshold);
         imshow(window_cont_name, cont);
         moveWindow(window_capture_name, 800,10);
-        moveWindow(window_detection_name, 50,50);
+        moveWindow(window_detection_name, 150,250);
         moveWindow(window_cont_name, 800,800);
         resizeWindow(window_capture_name, 950,550);
         resizeWindow(window_detection_name,600,600);
