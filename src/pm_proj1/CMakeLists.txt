@@ -16,6 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   cv_bridge
   image_transport
+  
 )
 
 include_directories(
@@ -34,16 +35,16 @@ catkin_package(
     )
 ## Declare a C++ executable
 # add_executable(${PROJECT_NAME}_node src/cv_classes_node.cpp)
-add_executable(vloader src/vloader.cpp)
-add_executable(vtracker src/vloader.cpp)
+add_executable(vloaderr src/vloader.cpp)
+add_executable(vtracker src/vtracker.cpp)
 ## Rename C++ executable without prefix
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 
 ## Rename C++ executable without prefix
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
-set_target_properties(vloader PROPERTIES OUTPUT_NAME vloader PREFIX "")
+set_target_properties(vloaderr PROPERTIES OUTPUT_NAME vloaderr PREFIX "")
 ## Add cmake target dependencies of the executable
-add_dependencies(vloader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(vloaderr ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 set_target_properties(vtracker PROPERTIES OUTPUT_NAME vtracker PREFIX "")
 ## Add cmake target dependencies of the executable
@@ -53,7 +54,7 @@ add_dependencies(vtracker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${libname_LIBRARIES}
 # )
-target_link_libraries(vloader ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(vloaderr ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
 target_link_libraries(vtracker ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
 
 

@@ -1,10 +1,11 @@
 <?xml version="1.0"?>
 <launch>
 <!--- Run tp1_tutorial node -->
-<node pkg="pm_proj1" type="pm_proj1" name="pm_proj1" output="screen" respawn="false">
+<node pkg="pm_proj1" type="vloaderr" name="vloaderr" output="screen" respawn="false">
 <!-- configure parameters no need for compilation -->
 <param name="path" value="/home/percmap/project_pm/src/pm_proj1/src/videoPlastic.mp4"/>
 <param name="mean" value="0.0" />
 <param name="stdev" value="0.0" />
 </node>
 </launch>
+

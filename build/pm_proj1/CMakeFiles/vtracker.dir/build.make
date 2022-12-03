@@ -57,38 +57,38 @@ include pm_proj1/CMakeFiles/vtracker.dir/progress.make
 # Include the compile flags for this target's objects.
 include pm_proj1/CMakeFiles/vtracker.dir/flags.make
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o: pm_proj1/CMakeFiles/vtracker.dir/flags.make
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o: /home/percmap/project_pm/src/pm_proj1/src/vloader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/percmap/project_pm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o"
-	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vtracker.dir/src/vloader.cpp.o -c /home/percmap/project_pm/src/pm_proj1/src/vloader.cpp
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o: pm_proj1/CMakeFiles/vtracker.dir/flags.make
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o: /home/percmap/project_pm/src/pm_proj1/src/vtracker.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/percmap/project_pm/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o"
+	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vtracker.dir/src/vtracker.cpp.o -c /home/percmap/project_pm/src/pm_proj1/src/vtracker.cpp
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vtracker.dir/src/vloader.cpp.i"
-	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/percmap/project_pm/src/pm_proj1/src/vloader.cpp > CMakeFiles/vtracker.dir/src/vloader.cpp.i
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vtracker.dir/src/vtracker.cpp.i"
+	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/percmap/project_pm/src/pm_proj1/src/vtracker.cpp > CMakeFiles/vtracker.dir/src/vtracker.cpp.i
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vtracker.dir/src/vloader.cpp.s"
-	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/percmap/project_pm/src/pm_proj1/src/vloader.cpp -o CMakeFiles/vtracker.dir/src/vloader.cpp.s
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vtracker.dir/src/vtracker.cpp.s"
+	cd /home/percmap/project_pm/build/pm_proj1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/percmap/project_pm/src/pm_proj1/src/vtracker.cpp -o CMakeFiles/vtracker.dir/src/vtracker.cpp.s
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.requires:
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.requires:
 
-.PHONY : pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.requires
+.PHONY : pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.requires
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.provides: pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.requires
-	$(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.provides.build
-.PHONY : pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.provides
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.provides: pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.requires
+	$(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.provides.build
+.PHONY : pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.provides
 
-pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.provides.build: pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o
+pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.provides.build: pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o
 
 
 # Object files for target vtracker
 vtracker_OBJECTS = \
-"CMakeFiles/vtracker.dir/src/vloader.cpp.o"
+"CMakeFiles/vtracker.dir/src/vtracker.cpp.o"
 
 # External object files for target vtracker
 vtracker_EXTERNAL_OBJECTS =
 
-/home/percmap/project_pm/devel/lib/pm_proj1/vtracker: pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o
+/home/percmap/project_pm/devel/lib/pm_proj1/vtracker: pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o
 /home/percmap/project_pm/devel/lib/pm_proj1/vtracker: pm_proj1/CMakeFiles/vtracker.dir/build.make
 /home/percmap/project_pm/devel/lib/pm_proj1/vtracker: /usr/lib/x86_64-linux-gnu/libopencv_shape.so.3.2.0
 /home/percmap/project_pm/devel/lib/pm_proj1/vtracker: /usr/lib/x86_64-linux-gnu/libopencv_stitching.so.3.2.0
@@ -172,7 +172,7 @@ pm_proj1/CMakeFiles/vtracker.dir/build: /home/percmap/project_pm/devel/lib/pm_pr
 
 .PHONY : pm_proj1/CMakeFiles/vtracker.dir/build
 
-pm_proj1/CMakeFiles/vtracker.dir/requires: pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o.requires
+pm_proj1/CMakeFiles/vtracker.dir/requires: pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o.requires
 
 .PHONY : pm_proj1/CMakeFiles/vtracker.dir/requires
 

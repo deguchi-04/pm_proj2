@@ -56,18 +56,6 @@ CMAKE_BINARY_DIR = /home/percmap/project_pm/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
-
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -79,6 +67,18 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
 # Special rule for the target test
 test:
@@ -183,19 +183,19 @@ vtracker/fast:
 .PHONY : vtracker/fast
 
 # Convenience name for target.
-pm_proj1/CMakeFiles/vloader.dir/rule:
-	cd /home/percmap/project_pm/build && $(MAKE) -f CMakeFiles/Makefile2 pm_proj1/CMakeFiles/vloader.dir/rule
-.PHONY : pm_proj1/CMakeFiles/vloader.dir/rule
+pm_proj1/CMakeFiles/vloaderr.dir/rule:
+	cd /home/percmap/project_pm/build && $(MAKE) -f CMakeFiles/Makefile2 pm_proj1/CMakeFiles/vloaderr.dir/rule
+.PHONY : pm_proj1/CMakeFiles/vloaderr.dir/rule
 
 # Convenience name for target.
-vloader: pm_proj1/CMakeFiles/vloader.dir/rule
+vloaderr: pm_proj1/CMakeFiles/vloaderr.dir/rule
 
-.PHONY : vloader
+.PHONY : vloaderr
 
 # fast build rule for target.
-vloader/fast:
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/build
-.PHONY : vloader/fast
+vloaderr/fast:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloaderr.dir/build.make pm_proj1/CMakeFiles/vloaderr.dir/build
+.PHONY : vloaderr/fast
 
 # Convenience name for target.
 pm_proj1/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule:
@@ -578,8 +578,7 @@ src/vloader.o: src/vloader.cpp.o
 
 # target to build an object file
 src/vloader.cpp.o:
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloaderr.dir/build.make pm_proj1/CMakeFiles/vloaderr.dir/src/vloader.cpp.o
 .PHONY : src/vloader.cpp.o
 
 src/vloader.i: src/vloader.cpp.i
@@ -588,8 +587,7 @@ src/vloader.i: src/vloader.cpp.i
 
 # target to preprocess a source file
 src/vloader.cpp.i:
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.i
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.i
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloaderr.dir/build.make pm_proj1/CMakeFiles/vloaderr.dir/src/vloader.cpp.i
 .PHONY : src/vloader.cpp.i
 
 src/vloader.s: src/vloader.cpp.s
@@ -598,9 +596,35 @@ src/vloader.s: src/vloader.cpp.s
 
 # target to generate assembly for a file
 src/vloader.cpp.s:
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.s
-	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.s
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloaderr.dir/build.make pm_proj1/CMakeFiles/vloaderr.dir/src/vloader.cpp.s
 .PHONY : src/vloader.cpp.s
+
+src/vtracker.o: src/vtracker.cpp.o
+
+.PHONY : src/vtracker.o
+
+# target to build an object file
+src/vtracker.cpp.o:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.o
+.PHONY : src/vtracker.cpp.o
+
+src/vtracker.i: src/vtracker.cpp.i
+
+.PHONY : src/vtracker.i
+
+# target to preprocess a source file
+src/vtracker.cpp.i:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.i
+.PHONY : src/vtracker.cpp.i
+
+src/vtracker.s: src/vtracker.cpp.s
+
+.PHONY : src/vtracker.s
+
+# target to generate assembly for a file
+src/vtracker.cpp.s:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vtracker.cpp.s
+.PHONY : src/vtracker.cpp.s
 
 # Help Target
 help:
@@ -608,10 +632,10 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... vtracker"
-	@echo "... vloader"
+	@echo "... install/strip"
+	@echo "... vloaderr"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... test"
 	@echo "... geometry_msgs_generate_messages_lisp"
@@ -645,6 +669,9 @@ help:
 	@echo "... src/vloader.o"
 	@echo "... src/vloader.i"
 	@echo "... src/vloader.s"
+	@echo "... src/vtracker.o"
+	@echo "... src/vtracker.i"
+	@echo "... src/vtracker.s"
 .PHONY : help
 
 
