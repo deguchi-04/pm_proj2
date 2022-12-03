@@ -12,10 +12,13 @@
 #include <turtlesim/Pose.h>
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
+
 /// Global vars
 
-/// ROS Publisher
-ros::Publisher pub; // Global to be use outside main
+// name of the windows
+const cv::String window_capture_name = "Video Capture";
+const cv::String window_detection_name = "Object Detection";
+const cv::String window_cont_name = "Contours Detection";
 
 std::string path = "../project_pm/src/pm_proj1/src/videoPlastic.mp4";
 cv::RNG rng(12345);
@@ -26,5 +29,11 @@ int thresh = 80;
 int meanColor = 0;
 int stdev = 0;
 double area = 0;
+
+const int max_value_H = 360 / 2;
+const int max_value = 255;
+
+int low_H = 0, low_S = 0, low_V = 0;
+int high_H = max_value_H, high_S = max_value, high_V = max_value;
 
 #endif

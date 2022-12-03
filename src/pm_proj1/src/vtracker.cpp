@@ -10,8 +10,9 @@ void cbPose(const turtlesim::Pose &msg)
         ROS_WARN_STREAM("center=(" << msg.x << "," << msg.y << ")");
         flag_first = true;
     }
-    geometry_msgs::Vector3 center;
-    center.x = ball_center.x;
-    center.y = ball_center.y;
-    pub.publish(center);
+    
+}
+
+int main(int argc, char **argv){
+
 }

@@ -14,6 +14,8 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   sensor_msgs
   std_msgs
+  cv_bridge
+  image_transport
 )
 
 include_directories(
@@ -27,13 +29,13 @@ include_directories(
 
 catkin_package(
     INCLUDE_DIRS include
-        CATKIN_DEPENDS roscpp sensor_msgs std_msgs
+        CATKIN_DEPENDS roscpp sensor_msgs std_msgs image_transport cv_bridge
     #    DEPENDS
     )
 ## Declare a C++ executable
 # add_executable(${PROJECT_NAME}_node src/cv_classes_node.cpp)
 add_executable(vloader src/vloader.cpp)
-
+add_executable(vtracker src/vloader.cpp)
 ## Rename C++ executable without prefix
 ## e.g. "rosrun someones_pkg node" instead of "rosrun someones_pkg someones_pkg_node"
 
@@ -42,13 +44,17 @@ add_executable(vloader src/vloader.cpp)
 set_target_properties(vloader PROPERTIES OUTPUT_NAME vloader PREFIX "")
 ## Add cmake target dependencies of the executable
 add_dependencies(vloader ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+
+set_target_properties(vtracker PROPERTIES OUTPUT_NAME vtracker PREFIX "")
+## Add cmake target dependencies of the executable
+add_dependencies(vtracker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 ## Add cmake target dependencies of the executable
 ## Specify libraries to link a library or executable target against
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${libname_LIBRARIES}
 # )
-target_link_libraries(vloader ${OpenCV_LIBRARIES})
-target_link_libraries(vloader ${catkin_LIBRARIES})
+target_link_libraries(vloader ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(vtracker ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures

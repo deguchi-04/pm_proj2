@@ -285,6 +285,19 @@ gtest/fast:
 .PHONY : gtest/fast
 
 #=============================================================================
+# Target rules for targets named vtracker
+
+# Build rule for target.
+vtracker: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 vtracker
+.PHONY : vtracker
+
+# fast build rule for target.
+vtracker/fast:
+	$(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/build
+.PHONY : vtracker/fast
+
+#=============================================================================
 # Target rules for targets named vloader
 
 # Build rule for target.
@@ -644,6 +657,7 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... vtracker"
 	@echo "... vloader"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... geometry_msgs_generate_messages_lisp"

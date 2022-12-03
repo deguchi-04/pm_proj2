@@ -168,6 +168,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+pm_proj1/CMakeFiles/vtracker.dir/rule:
+	cd /home/percmap/project_pm/build && $(MAKE) -f CMakeFiles/Makefile2 pm_proj1/CMakeFiles/vtracker.dir/rule
+.PHONY : pm_proj1/CMakeFiles/vtracker.dir/rule
+
+# Convenience name for target.
+vtracker: pm_proj1/CMakeFiles/vtracker.dir/rule
+
+.PHONY : vtracker
+
+# fast build rule for target.
+vtracker/fast:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/build
+.PHONY : vtracker/fast
+
+# Convenience name for target.
 pm_proj1/CMakeFiles/vloader.dir/rule:
 	cd /home/percmap/project_pm/build && $(MAKE) -f CMakeFiles/Makefile2 pm_proj1/CMakeFiles/vloader.dir/rule
 .PHONY : pm_proj1/CMakeFiles/vloader.dir/rule
@@ -563,6 +578,7 @@ src/vloader.o: src/vloader.cpp.o
 
 # target to build an object file
 src/vloader.cpp.o:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.o
 	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.o
 .PHONY : src/vloader.cpp.o
 
@@ -572,6 +588,7 @@ src/vloader.i: src/vloader.cpp.i
 
 # target to preprocess a source file
 src/vloader.cpp.i:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.i
 	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.i
 .PHONY : src/vloader.cpp.i
 
@@ -581,6 +598,7 @@ src/vloader.s: src/vloader.cpp.s
 
 # target to generate assembly for a file
 src/vloader.cpp.s:
+	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vtracker.dir/build.make pm_proj1/CMakeFiles/vtracker.dir/src/vloader.cpp.s
 	cd /home/percmap/project_pm/build && $(MAKE) -f pm_proj1/CMakeFiles/vloader.dir/build.make pm_proj1/CMakeFiles/vloader.dir/src/vloader.cpp.s
 .PHONY : src/vloader.cpp.s
 
@@ -592,6 +610,7 @@ help:
 	@echo "... depend"
 	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... vtracker"
 	@echo "... vloader"
 	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... test"
