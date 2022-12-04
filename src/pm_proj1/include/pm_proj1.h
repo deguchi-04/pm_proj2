@@ -37,7 +37,7 @@ int low_H = 0, low_S = 0, low_V = 0;
 int high_H = max_value_H, high_S = max_value, high_V = max_value;
 
 sensor_msgs::ImagePtr msg;
-ros::Publisher center_ball_publisher;
+
 
 
 #endif
