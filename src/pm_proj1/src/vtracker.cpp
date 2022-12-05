@@ -1,47 +1,55 @@
 #include "pm_proj1.h"
 
-
 geometry_msgs::Vector3 center;
-   
+sensor_msgs::ImagePtr frame;
 
-void cbPose(const sensor_msgs::ImagePtr &msg_frame)
+void cbPose(const sensor_msgs::ImageConstPtr &msg_frame)
 {
-    if (!flag_first)
+    try
     {
-        // Received center
-        // FAZER direiro o subscriber
-        ROS_WARN_STREAM("Inside callback!");
-        ROS_WARN_STREAM("center=(" << ball_center.x << "," << ball_center.y << ")");
-        flag_first = true;
+           // Received center
+        cv::Mat img = cv_bridge::toCvShare(msg_frame, "bgr8")->image;
+    
+        cv::imshow("Frame", cv_bridge::toCvShare(msg_frame, "bgr8")->image);
+
+        cv::waitKey(1);
+    }
+    catch (cv_bridge::Exception &e)
+    {
+        ROS_ERROR("ERRO");
     }
 }
 
 void cbPose2(const geometry_msgs::Vector3 &msg)
 {
-        // Received center
-        // FAZER direiro o subscriber
-        center.x = msg.x;
-        center.y = msg.y;
-        ROS_WARN_STREAM("Inside callback!");
-        ROS_WARN_STREAM("center=(" << msg.x << "," << msg.y << ")");
-    
+    // Received center
+    // FAZER direiro o subscriber
+    center.x = msg.x;
+    center.y = msg.y;
+    ROS_WARN_STREAM("Inside callback!");
+    ROS_WARN_STREAM("center=(" << msg.x << "," << msg.y << ")");
 }
 
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "vtracker");
     ros::NodeHandle n_center;
+    ros::NodeHandle n_frame;
+    cv::namedWindow("Frame");
+    image_transport::ImageTransport it(n_frame);
+
     // Create the node handles to establish the program as a ROS node
-    ros::Subscriber sub = n_center.subscribe("vloarder/ball_center",1,cbPose2);
-
-
-/////////////////////////EXERCISE 2////////////////////////////
+    ros::Subscriber sub = n_center.subscribe("vloarder/ball_center", 1, cbPose2);
+    image_transport::Subscriber sub_frame = it.subscribe("vloarder/frame", 1, cbPose);
     
+
+    /////////////////////////EXERCISE 2////////////////////////////
+
     // std::vector<float> observation_x;
     // std::vector<float> observation_y;
-    
+
     // int fps = 30;
-    
+
     // float xinit = observation_x[0];
     // float yinit = observation_y[0];
 
@@ -60,7 +68,7 @@ int main(int argc, char **argv)
     // kalman_fil.statePre.at<float>(2) = (float)vxinit;
     // kalman_fil.statePre.at<float>(3) = (float)vyinit;
 
-    // float transitionMatrixValues[4][4] = { {1, 0, 1/fps, 0}, 
+    // float transitionMatrixValues[4][4] = { {1, 0, 1/fps, 0},
     //                                        {0, 1, 0, 1/fps},
     //                                        {0, 0, 1, 0},
     //                                        {0, 0, 0, 1} };
@@ -70,7 +78,7 @@ int main(int argc, char **argv)
     //                                         {0, 1, 0, 0} };
     // kalman_fil.measurementMatrix = cv::Mat(2, 4, CV_32F, measurementMatrixValues);
 
-    // float processNoiseMatrix[4][4] = { {1e-3, 0, 0, 0}, 
+    // float processNoiseMatrix[4][4] = { {1e-3, 0, 0, 0},
     //                                    {0, 1e-3, 0, 0},
     //                                    {0, 0, 1e-3, 0},
     //                                    {0, 0, 0, 1e-3} };
@@ -85,7 +93,6 @@ int main(int argc, char **argv)
     //                                    {0, 0, 0.5, 0},
     //                                    {0, 0, 0, 0.5} };
     // kalman_fil.errorCovPost = cv::Mat(4, 4, CV_32F, errorCovPostMatrix);
-
 
     // cv::Mat mp(2, 1, CV_32F, cv::Scalar::all(0));
     // std::vector<int> predicted_x;
@@ -108,7 +115,6 @@ int main(int argc, char **argv)
     //     predicted_y.push_back((int)tp.at<float>(1));
     // }
 
-
     // plt.figure(figsize=(16, 6));
     // plt.plot(observation_x, observation_y, linestyle='', marker='x', color='g', label='observation');
     // plt.plot(predicted_x, predicted_y, linestyle='', color='b', label='tracked');
@@ -117,6 +123,8 @@ int main(int argc, char **argv)
     // plt.ylabel('y');
     // plt.show();
     // Spin - Infinite loop to ask ROS to read all pending callbacks
+
     ros::spin();
+    cv::destroyWindow("Frame");
     return 0;
 }

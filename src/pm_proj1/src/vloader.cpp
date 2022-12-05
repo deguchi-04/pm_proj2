@@ -71,11 +71,14 @@ int main(int argc, char **argv)
     // Publishers
     ros::NodeHandle n_frame;
     ros::NodeHandle n_center;
+
     image_transport::ImageTransport it(n_frame);
+
     ros::Publisher center_ball_publisher;
 
-    image_transport::Publisher frame_publisher = it.advertise("vloarder/frame", 1);
+    image_transport::Publisher frame_publisher;
 
+    frame_publisher = it.advertise("vloarder/frame", 1);
     center_ball_publisher = n_center.advertise<geometry_msgs::Vector3>("vloarder/ball_center", 1000);
     ros::Rate loop_rate(10);
 
@@ -142,6 +145,8 @@ int main(int argc, char **argv)
             {
                 break;
             }
+            sensor_msgs::ImagePtr msg_frame = cv_bridge::CvImage(std_msgs::Header(), "bgr8", frame).toImageMsg();
+            frame_publisher.publish(msg_frame);
             ////////////////////Alinea B//////////////////////
             // Convert from BGR to HSV colorspace
             cvtColor(frame, frame_HSV, COLOR_BGR2HSV);
