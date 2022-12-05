@@ -47,28 +47,9 @@ int main(int argc, char **argv)
 
     /////////////////////////EXERCISE 2////////////////////////////
 
-    // std::vector<float> observation_x;
-    // std::vector<float> observation_y;
-
     float fps = 30;
 
-    // float xinit = observation_x[0];
-    // float yinit = observation_y[0];
-
-    // float vxinit = (observation_x[1] - observation_x[0]) * fps;
-    // float vyinit = (observation_y[1] - observation_y[0]) * fps;
-
     cv::KalmanFilter kalman_fil(4, 2);
-
-    // kalman_fil.statePost.at<float>(0) = (float)xinit;
-    // kalman_fil.statePost.at<float>(1) = (float)yinit;
-    // kalman_fil.statePost.at<float>(2) = (float)vxinit;
-    // kalman_fil.statePost.at<float>(3) = (float)vyinit;
-
-    // kalman_fil.statePre.at<float>(0) = (float)xinit;
-    // kalman_fil.statePre.at<float>(1) = (float)yinit;
-    // kalman_fil.statePre.at<float>(2) = (float)vxinit;
-    // kalman_fil.statePre.at<float>(3) = (float)vyinit;
 
     float transitionMatrixValues[4][4] = {{1, 0, 1 / fps, 0},
                                           {0, 1, 0, 1 / fps},
@@ -118,9 +99,6 @@ int main(int argc, char **argv)
         tp = kalman_fil.predict();
         predicted_x.push_back((int)tp.at<float>(0));
         predicted_y.push_back((int)tp.at<float>(1));
-        // std::cout << tp.at<float>(0);
-        // std::cout << tp.at<float>(1);
-
 
         geometry_msgs::Vector3 center_tracked;
         center_tracked.x = tp.at<float>(0);

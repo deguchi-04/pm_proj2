@@ -58,7 +58,7 @@ int main(int argc, char **argv)
 
     n_private.param<int>("meanColor", meanColor, 0);
     n_private.param<int>("stdev", stdev, 0);
-    n_private.param<std::string>("path", path, "../project_pm/src/pm_proj1/src/videoTennis.mp4");
+    n_private.param<std::string>("path", path, "../project_pm/src/pm_proj1/src/videoPlastic.mp4");
 
     // Publishers
     ros::NodeHandle n_frame;
@@ -151,7 +151,7 @@ int main(int argc, char **argv)
             cv::Point com(m.m10 / m.m00, m.m01 / m.m00);
             cv::drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 5);
             cv::drawMarker(frame_threshold, com, color, cv::MARKER_CROSS, 20, 5);
-            cv::putText(frame,"Obs",cv::Point(com.x -70, com.y-50),cv::FONT_HERSHEY_DUPLEX,1,color);
+            cv::putText(frame,"Obs",cv::Point(com.x -0, com.y-50),cv::FONT_HERSHEY_DUPLEX,1,color);
 
             cv::Point tracked ;
             tracked.x = center_tracked.x;
