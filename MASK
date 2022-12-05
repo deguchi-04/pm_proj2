@@ -1,0 +1,2 @@
+mask tennis 0 60 60
+mask platic 40 40 0
