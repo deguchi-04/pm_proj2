@@ -19,7 +19,7 @@
 const cv::String window_capture_name = "Video Capture";
 const cv::String window_detection_name = "Object Detection";
 const cv::String window_cont_name = "Contours Detection";
-
+std::string name, name2;
 std::string path = "../project_pm/src/pm_proj1/src/videoPlastic.mp4";
 cv::RNG rng(12345);
 cv::Point ball_center;

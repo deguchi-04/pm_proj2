@@ -48,14 +48,16 @@ int main(int argc, char **argv)
     ros::Rate loop_rate(10);
 
     // save videos
-    std::string name;
+    
     if (path == "../project_pm/src/pm_proj1/src/videoPlastic.mp4")
     {
         name = "p1_plastic.mp4";
+        name2 = "p2_plastic.mp4";
     }
     else if (path == "../project_pm/src/pm_proj1/src/videoTennis.mp4")
     {
         name = "p1_tennis.mp4";
+        name2 = "p2_tennis.mp4";
     }
     int count = 0;
 
@@ -82,6 +84,8 @@ int main(int argc, char **argv)
     cv::Size frame_size = cv::Size((int)cap.get(cv::CAP_PROP_FRAME_WIDTH), (int)cap.get(cv::CAP_PROP_FRAME_HEIGHT));
 
     cv::VideoWriter writer(name, cv::VideoWriter::fourcc('a', 'v', 'c', '1'), fps, frame_size);
+    
+    cv::VideoWriter writer2(name2, cv::VideoWriter::fourcc('a', 'v', 'c', '1'), fps, frame_size);
 
     cv::Scalar color = cv::Scalar(0, 255, 0);
     cv::Scalar color2 = cv::Scalar(255, 0, 0);
@@ -100,14 +104,18 @@ int main(int argc, char **argv)
             {
                 break;
             }
+            cv::Mat prin;
             sensor_msgs::ImagePtr msg_frame = cv_bridge::CvImage(std_msgs::Header(), "bgr8", frame).toImageMsg();
             frame_publisher.publish(msg_frame);
             ////////////////////Alinea B//////////////////////
             // Convert from BGR to HSV colorspace
             cvtColor(frame, frame_HSV, cv::COLOR_BGR2HSV);
             // Detect the object based on HSV Range Values
+            
             inRange(frame_HSV, cv::Scalar(lowH, lowS, lowV), cv::Scalar(highH, highS, highV), frame_threshold);
+            prin=frame_threshold.clone();
             geometry_msgs::Vector3 center;
+            cv::bitwise_and(frame,frame,prin,frame_threshold);
             ///////////////////// Alinea D //////////////////////////////
             cv::Moments m = moments(frame_threshold, false);
             cv::Point com(m.m10 / m.m00, m.m01 / m.m00);
@@ -128,6 +136,7 @@ int main(int argc, char **argv)
             center_ball_publisher.publish(center);
 
             Canny(frame_threshold, cont, thresh, thresh * 2);
+            cv::cvtColor(cont,prin, cv::COLOR_GRAY2BGR);
             std::vector<std::vector<cv::Point>> contours;
             std::vector<cv::Vec4i> hierarchy;
             findContours(cont, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
@@ -144,19 +153,20 @@ int main(int argc, char **argv)
                 }
             }
 
-            writer.write(frame);
-            writer.write(frame_threshold);
             // Show the frames
             imshow(window_capture_name, frame);
             imshow(window_detection_name, frame_threshold);
-            imshow(window_cont_name, cont);
+            imshow(window_cont_name, prin);
             moveWindow(window_capture_name, 800, 10);
             moveWindow(window_detection_name, 150, 250);
             moveWindow(window_cont_name, 800, 800);
             resizeWindow(window_capture_name, 950, 550);
             resizeWindow(window_detection_name, 600, 600);
             resizeWindow(window_cont_name, 950, 550);
+            
 
+            writer.write(prin);
+            writer2.write(frame);
             // Press Space Bar to continue, ESC to exit
             char c = (char)cv::waitKey(0);
             if (c == 27)
@@ -182,6 +192,7 @@ int main(int argc, char **argv)
     // When everything is done, release the video capture and writer objects
     cap.release();
     writer.release();
+    writer2.release();
 
     // Close all the frames
     cv::destroyAllWindows();
