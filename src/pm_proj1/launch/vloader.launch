@@ -1,15 +1,16 @@
 <?xml version="1.0"?>
 <launch>
-<!--- Run tp1_tutorial node -->
-<node pkg="pm_proj1" type="vloaderr" name="vloaderr" output="screen" respawn="false">
-<!-- configure parameters no need for compilation -->
-<param name="path" value="/home/percmap/project_pm/src/pm_proj1/src/videoPlastic.mp4"/>
-<param name="lowH" value="0" />
-<param name="lowS" value="0" />
-<param name="lowV" value="0" />
-<param name="highH" value="180" />
-<param name="highS" value="255" />
-<param name="highV" value="255" />
-</node>
+    <node pkg="pm_proj1" type="vtracker" name="vtracker" output="screen" respawn="false"/>
+    <!--- Run tp1_tutorial node -->
+    <node pkg="pm_proj1" type="vloaderr" name="vloaderr" output="screen" respawn="false">
+        <!-- configure parameters no need for compilation -->
+        <param name="path" value="/home/percmap/project_pm/src/pm_proj1/src/videoPlastic.mp4"/>
+        <param name="lowH" value="40" />
+        <param name="lowS" value="40" />
+        <param name="lowV" value="0" />
+        <param name="highH" value="180" />
+        <param name="highS" value="255" />
+        <param name="highV" value="255" />
+    </node>
 </launch>
 
