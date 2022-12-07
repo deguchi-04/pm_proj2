@@ -8,7 +8,7 @@ void cbPose_track(const geometry_msgs::Vector3 &msg)
     // FAZER direiro o subscriber
     center_tracked.x = msg.x;
     center_tracked.y = msg.y;
-    ROS_WARN_STREAM("Inside callback!");
+    ROS_WARN_STREAM("Inside callback tracker!");
     ROS_WARN_STREAM("center=(" << msg.x << "," << msg.y << ")");
 }
 

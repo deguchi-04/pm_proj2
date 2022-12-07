@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++14
 
 CXX_DEFINES = -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"pm_proj1\"
 
-CXX_INCLUDES = -isystem /usr/include/opencv -I/home/percmap/project_pm/src/pm_proj1/include -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
+CXX_INCLUDES = -isystem /usr/include/opencv -I/home/percmap/project_pm/src/pm_proj1/include -I/usr/include/python2.7 -I/opt/ros/melodic/include -I/opt/ros/melodic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp 
 

@@ -1,7 +1,10 @@
 #include "pm_proj1.h"
+namespace plt = matplotlibcpp;
 
 geometry_msgs::Vector3 center;
 sensor_msgs::ImagePtr frame;
+
+
 
 void cbPose(const sensor_msgs::ImageConstPtr &msg_frame)
 {
@@ -26,7 +29,7 @@ void cbPose2(const geometry_msgs::Vector3 &msg)
     // FAZER direiro o subscriber
     center.x = msg.x;
     center.y = msg.y;
-    ROS_WARN_STREAM("Inside callback!");
+    ROS_WARN_STREAM("Inside callback Obs!");
     ROS_WARN_STREAM("center=(" << msg.x << "," << msg.y << ")");
 }
 
@@ -37,7 +40,6 @@ int main(int argc, char **argv)
     ros::NodeHandle n_frame;
     cv::namedWindow("Frame");
     image_transport::ImageTransport it(n_frame);
-
     // Create the node handles to establish the program as a ROS node
     ros::Subscriber sub = n_center.subscribe("vloarder/ball_center", 1, cbPose2);
     image_transport::Subscriber sub_frame = it.subscribe("vloarder/frame", 1, cbPose);
@@ -46,7 +48,9 @@ int main(int argc, char **argv)
     center_ball_publisher_tracked = n_center.advertise<geometry_msgs::Vector3>("vtracker/ball_center_tracker", 1000);
 
     /////////////////////////EXERCISE 2////////////////////////////
+    
 
+    
     float fps = 30;
 
     cv::KalmanFilter kalman_fil(4, 2);
@@ -80,6 +84,8 @@ int main(int argc, char **argv)
     cv::Mat mp(2, 1, CV_32F, cv::Scalar::all(0));
     std::vector<int> predicted_x;
     std::vector<int> predicted_y;
+    std::vector<double> observation_x;
+    std::vector<double> observation_y;
     cv::Mat tp;
 
     while (ros::ok())
@@ -99,27 +105,31 @@ int main(int argc, char **argv)
         tp = kalman_fil.predict();
         predicted_x.push_back((int)tp.at<float>(0));
         predicted_y.push_back((int)tp.at<float>(1));
-
+        observation_x.push_back(center.x);
+        observation_y.push_back(center.y);
         geometry_msgs::Vector3 center_tracked;
         center_tracked.x = tp.at<float>(0);
         center_tracked.y = tp.at<float>(1);
         center_tracked.z = 0;
 
         center_ball_publisher_tracked.publish(center_tracked);
-
+        
         ros::spinOnce();
-    }
 
-    // plt.figure(figsize=(16, 6));
-    // plt.plot(observation_x, observation_y, linestyle='', marker='x', color='g', label='observation');
-    // plt.plot(predicted_x, predicted_y, linestyle='', color='b', label='tracked');
-    // plt.legend(loc='lower right');s
-    // plt.xlabel('x');
-    // plt.ylabel('y');
-    // plt.show();
+    }
+    
+
+    plt::figure(1);
+    plt::plot(observation_x, observation_y, "g-", {{"label", "Observation"}});
+    plt::plot(predicted_x, predicted_y, "b*",{{"label", "Predicted"}});
+    plt::legend("lower right");
+    plt::xlabel("x");
+    plt::ylabel("y");
+    plt::show();
     // Spin - Infinite loop to ask ROS to read all pending callbacks
 
-    ros::spin();
     cv::destroyWindow("Frame");
+     // Close the file
+   
     return 0;
 }

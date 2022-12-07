@@ -9,7 +9,8 @@
                 "/opt/ros/melodic/include/**",
                 "/home/percmap/project_pm/src/pm_proj1/include/**",
                 "/usr/include/**",
-                "/home/percmap"
+                "/home/percmap",
+                "/home/percmap/project_pm/src/pm_proj1/**"
             ],
             "name": "ROS",
             "intelliSenseMode": "gcc-x64",

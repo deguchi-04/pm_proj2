@@ -263,6 +263,9 @@ Project_SOURCE_DIR:STATIC=/home/percmap/project_pm/src
 //The directory containing a CMake configuration file for Python.h.
 Python.h_DIR:PATH=Python.h_DIR-NOTFOUND
 
+//The directory containing a CMake configuration file for Python3.
+Python3_DIR:PATH=Python3_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for Python.
 Python_DIR:PATH=Python_DIR-NOTFOUND
 

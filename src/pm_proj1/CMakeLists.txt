@@ -18,6 +18,10 @@ find_package(catkin REQUIRED COMPONENTS
   image_transport
   
 )
+find_package(Python3 COMPONENTS Interpreter Development NumPy)
+include_directories(${OpenCV_INCLUDE_DIRS})
+include_directories( include ${Python3_INCLUDE_DIRS})
+include_directories( /usr/include/python2.7)
 
 include_directories(
   include
@@ -54,8 +58,9 @@ add_dependencies(vtracker ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_
 # target_link_libraries(${PROJECT_NAME}_node
 #   ${libname_LIBRARIES}
 # )
-target_link_libraries(vloaderr ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
-target_link_libraries(vtracker ${OpenCV_LIBRARIES} ${catkin_LIBRARIES})
+target_link_libraries(vloaderr ${OpenCV_LIBRARIES} ${catkin_LIBRARIES} ${Python3_INCLUDE_DIRS})
+target_link_libraries(vtracker ${OpenCV_LIBRARIES} ${catkin_LIBRARIES} ${Python3_INCLUDE_DIRS})
+
 
 
 ## Uncomment this if the package has a setup.py. This macro ensures
