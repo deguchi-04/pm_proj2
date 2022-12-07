@@ -4,8 +4,12 @@
 <node pkg="pm_proj1" type="vloaderr" name="vloaderr" output="screen" respawn="false">
 <!-- configure parameters no need for compilation -->
 <param name="path" value="/home/percmap/project_pm/src/pm_proj1/src/videoPlastic.mp4"/>
-<param name="mean" value="0.0" />
-<param name="stdev" value="0.0" />
+<param name="lowH" value="0" />
+<param name="lowS" value="0" />
+<param name="lowV" value="0" />
+<param name="highH" value="180" />
+<param name="highS" value="255" />
+<param name="highV" value="255" />
 </node>
 </launch>
 

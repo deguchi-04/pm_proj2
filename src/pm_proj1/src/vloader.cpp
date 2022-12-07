@@ -2,39 +2,6 @@
 
 
 geometry_msgs::Vector3 center_tracked;
-// Trackbars
-static void on_low_H_thresh_trackbar(int, void *)
-{
-    low_H = cv::min(high_H - 1, low_H);
-    setTrackbarPos("Low H", window_detection_name, low_H);
-}
-static void on_high_H_thresh_trackbar(int, void *)
-{
-    high_H = cv::max(high_H, low_H + 1);
-    setTrackbarPos("High H", window_detection_name, high_H);
-}
-static void on_low_S_thresh_trackbar(int, void *)
-{
-    low_S = cv::min(high_S - 1, low_S);
-    setTrackbarPos("Low S", window_detection_name, low_S);
-}
-static void on_high_S_thresh_trackbar(int, void *)
-{
-    high_S = cv::max(high_S, low_S + 1);
-    setTrackbarPos("High S", window_detection_name, high_S);
-}
-static void on_low_V_thresh_trackbar(int, void *)
-{
-    low_V = cv::min(high_V - 1, low_V);
-    setTrackbarPos("Low V", window_detection_name, low_V);
-}
-static void on_high_V_thresh_trackbar(int, void *)
-{
-    high_V = cv::max(high_V, low_V + 1);
-    setTrackbarPos("High V", window_detection_name, high_V);
-}
-
-
 
 void cbPose_track(const geometry_msgs::Vector3 &msg)
 {
@@ -56,8 +23,12 @@ int main(int argc, char **argv)
 
     ros::NodeHandle n_private("~");
 
-    n_private.param<int>("meanColor", meanColor, 0);
-    n_private.param<int>("stdev", stdev, 0);
+    n_private.param<int>("lowH", lowH, 0);
+    n_private.param<int>("lowS", lowS, 0);
+    n_private.param<int>("lowV",lowV, 0);
+    n_private.param<int>("highH", highH, 180);
+    n_private.param<int>("highS", highS, 255);
+    n_private.param<int>("highV", highV, 255);
     n_private.param<std::string>("path", path, "../project_pm/src/pm_proj1/src/videoPlastic.mp4");
 
     // Publishers
@@ -104,13 +75,6 @@ int main(int argc, char **argv)
     cv::namedWindow(window_detection_name, cv::WINDOW_NORMAL);
     cv::namedWindow(window_cont_name, cv::WINDOW_NORMAL);
 
-    // Trackbars to set thresholds for HSV values
-    createTrackbar("Low H", window_detection_name, &low_H, max_value_H, on_low_H_thresh_trackbar);
-    createTrackbar("High H", window_detection_name, &high_H, max_value_H, on_high_H_thresh_trackbar);
-    createTrackbar("Low S", window_detection_name, &low_S, max_value, on_low_S_thresh_trackbar);
-    createTrackbar("High S", window_detection_name, &high_S, max_value, on_high_S_thresh_trackbar);
-    createTrackbar("Low V", window_detection_name, &low_V, max_value, on_low_V_thresh_trackbar);
-    createTrackbar("High V", window_detection_name, &high_V, max_value, on_high_V_thresh_trackbar);
 
     // declarations open cv
     cv::Mat frame, frame_HSV, frame_threshold, cont;
@@ -144,7 +108,7 @@ int main(int argc, char **argv)
             // Convert from BGR to HSV colorspace
             cvtColor(frame, frame_HSV, cv::COLOR_BGR2HSV);
             // Detect the object based on HSV Range Values
-            inRange(frame_HSV, cv::Scalar(low_H, low_S, low_V), cv::Scalar(high_H, high_S, high_V), frame_threshold);
+            inRange(frame_HSV, cv::Scalar(lowH, lowS, lowV), cv::Scalar(highH, highS, highV), frame_threshold);
             geometry_msgs::Vector3 center;
             ///////////////////// Alinea D //////////////////////////////
             cv::Moments m = moments(frame_threshold, false);

@@ -30,13 +30,11 @@ int meanColor = 0;
 int stdev = 0;
 double area = 0;
 
-const int max_value_H = 360 / 2;
-const int max_value = 255;
-
-int low_H = 0, low_S = 0, low_V = 0;
-int high_H = max_value_H, high_S = max_value, high_V = max_value;
-
-
-
+int lowH = 0;
+int lowS = 0;
+int lowV = 0;
+int highH = 180;
+int highS = 255;
+int highV = 255;
 
 #endif
