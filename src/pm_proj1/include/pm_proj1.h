@@ -37,4 +37,5 @@ int highH = 180;
 int highS = 255;
 int highV = 255;
 
+std::vector<double> vec;
 #endif

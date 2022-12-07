@@ -1,6 +1,5 @@
 #include "pm_proj1.h"
 
-
 geometry_msgs::Vector3 center_tracked;
 
 void cbPose_track(const geometry_msgs::Vector3 &msg)
@@ -25,7 +24,7 @@ int main(int argc, char **argv)
 
     n_private.param<int>("lowH", lowH, 0);
     n_private.param<int>("lowS", lowS, 0);
-    n_private.param<int>("lowV",lowV, 0);
+    n_private.param<int>("lowV", lowV, 0);
     n_private.param<int>("highH", highH, 180);
     n_private.param<int>("highS", highS, 255);
     n_private.param<int>("highV", highV, 255);
@@ -75,7 +74,6 @@ int main(int argc, char **argv)
     cv::namedWindow(window_detection_name, cv::WINDOW_NORMAL);
     cv::namedWindow(window_cont_name, cv::WINDOW_NORMAL);
 
-
     // declarations open cv
     cv::Mat frame, frame_HSV, frame_threshold, cont;
     int fps = 30;
@@ -115,13 +113,13 @@ int main(int argc, char **argv)
             cv::Point com(m.m10 / m.m00, m.m01 / m.m00);
             cv::drawMarker(frame, com, color, cv::MARKER_CROSS, 20, 5);
             cv::drawMarker(frame_threshold, com, color, cv::MARKER_CROSS, 20, 5);
-            cv::putText(frame,"Obs",cv::Point(com.x -0, com.y-50),cv::FONT_HERSHEY_DUPLEX,1,color);
+            cv::putText(frame, "Obs", cv::Point(com.x - 0, com.y - 50), cv::FONT_HERSHEY_DUPLEX, 1, color);
 
-            cv::Point tracked ;
+            cv::Point tracked;
             tracked.x = center_tracked.x;
             tracked.y = center_tracked.y;
             cv::drawMarker(frame, tracked, color2, cv::MARKER_TRIANGLE_DOWN, 20, 5);
-            cv::putText(frame,"Tracked",cv::Point(tracked.x -100, tracked.y-100),cv::FONT_HERSHEY_DUPLEX,1,color2);
+            cv::putText(frame, "Tracked", cv::Point(tracked.x - 100, tracked.y - 100), cv::FONT_HERSHEY_DUPLEX, 1, color2);
 
             center.x = com.x;
             center.y = com.y;
@@ -142,7 +140,7 @@ int main(int argc, char **argv)
                 area = contourArea(contours[i]);
                 if (area > 150)
                 {
-                    std::cout << " Area: " << contourArea(contours[i]) << std::endl;
+                    vec.push_back(area);
                 }
             }
 
@@ -171,6 +169,16 @@ int main(int argc, char **argv)
         if (c == 27)
             break;
     }
+    double sum = 0;
+    int size = 1;
+    double avg_area;
+    for (int i = 0; i < vec.size(); i++)
+    {
+        sum += vec[i];
+        size++;
+    }
+    avg_area = sum / size;
+    std::cout << " Average Area: " << avg_area << std::endl;
     // When everything is done, release the video capture and writer objects
     cap.release();
     writer.release();
