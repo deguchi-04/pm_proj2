@@ -120,17 +120,15 @@ int main(int argc, char **argv)
         
         ros::spinOnce();
     }
-    
 
     plt::figure(1);
-    plt::subplot(2,2,1);
     plt::plot(observation_x, observation_y, "g-", {{"label", "Observation"}});
-    plt::subplot(2,2,2);
+    plt::figure(2);
     plt::plot(predicted_x, predicted_y, "b*", {{"label", "Predicted"}});
     plt::legend("lower right");
     plt::xlabel("x");
     plt::ylabel("y");
-    plt::show();
+    plt::show(true);
     // Spin - Infinite loop to ask ROS to read all pending callbacks
 
     cv::destroyWindow("Frame");
