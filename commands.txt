@@ -1,0 +1,13 @@
+comando:
+
+roscore
+rosrun pm_proj1 vloaderr
+rosrun pm_proj1 vtracker
+rosparam set vloader/path "..."
+rosparam set vloader/minH "..."
+source ~/project_pm/devel/setup.bash
+
+Masks
+
+Tennis 28 80 80
+Plastic 40 40 0
